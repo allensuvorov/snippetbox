@@ -10,6 +10,12 @@ import (
 
 func home(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Server", "Go")
+
+	files := []string{
+		"./ui/html/base.html",
+		"./ui/html/pages/home.html",
+	}
+
 	ts, err := template.ParseFiles("../../ui/html/pages/home.html")
 	if err != nil {
 		log.Print(err.Error())

@@ -28,5 +28,6 @@ func main() {
 	logger.Info("starting server", "addr", *addr)
 
 	err := http.ListenAndServe(*addr, mux)
+	logger.Error(err.Error())
 	log.Fatal(err)
 }

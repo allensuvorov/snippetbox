@@ -23,6 +23,6 @@ func main() {
 
 	log.Printf("starting server on %s", *addr)
 
-	err := http.ListenAndServe(":4000", mux)
+	err := http.ListenAndServe(*addr, mux)
 	log.Fatal(err)
 }

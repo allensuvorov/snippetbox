@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"log"
 	"log/slog"
 	"net/http"
 	"os"
@@ -29,5 +28,5 @@ func main() {
 
 	err := http.ListenAndServe(*addr, mux)
 	logger.Error(err.Error())
-	log.Fatal(err)
+	os.Exit(1)
 }

@@ -7,11 +7,14 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/allensuvorov/snippetbox.git/internal/models"
+
 	_ "github.com/go-sql-driver/mysql"
 )
 
 type application struct {
-	logger *slog.Logger
+	logger   *slog.Logger
+	snippets *models.SnippetModel
 }
 
 func main() {

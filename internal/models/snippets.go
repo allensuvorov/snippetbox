@@ -1,6 +1,9 @@
 package models
 
-import "time"
+import (
+	"database/sql"
+	"time"
+)
 
 type Snippet struct {
 	ID      int
@@ -8,4 +11,8 @@ type Snippet struct {
 	Content string
 	Created time.Time
 	Expires time.Time
+}
+
+type SnippetModel struct {
+	DB *sql.DB
 }

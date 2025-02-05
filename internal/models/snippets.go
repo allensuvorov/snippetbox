@@ -16,3 +16,7 @@ type Snippet struct {
 type SnippetModel struct {
 	DB *sql.DB
 }
+
+func (m *SnippetModel) Insert(title string, content string, expires int) (int, error) {
+	return 0, nil
+}

@@ -53,6 +53,5 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	w.WriteHeader(http.StatusCreated)
-	w.Write([]byte("Save a new snippet..."))
+	http.Redirect(w, r, fmt.Sprintf("/nippet/view/%d", id), http.StatusSeeOther)
 }

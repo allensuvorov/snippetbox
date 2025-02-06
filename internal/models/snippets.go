@@ -42,6 +42,8 @@ func (m *SnippetModel) Get(id int) (Snippet, error) {
 
 	var s Snippet
 
+	err := row.Scan(&s.ID, &s.Title, &s.Content, &s.Created, &s.Expires)
+
 	return Snippet{}, nil
 }
 

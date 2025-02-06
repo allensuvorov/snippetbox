@@ -31,7 +31,7 @@ func (m *SnippetModel) Insert(title string, content string, expires int) (int, e
 		return 0, err
 	}
 
-	return 0, nil
+	return int(id), nil
 }
 
 func (m *SnippetModel) Get(id int) (Snippet, error) {

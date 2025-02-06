@@ -40,6 +40,8 @@ func (m *SnippetModel) Get(id int) (Snippet, error) {
 
 	row := m.DB.QueryRow(stmt, id)
 
+	var s Snippet
+
 	return Snippet{}, nil
 }
 

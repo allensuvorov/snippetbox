@@ -43,6 +43,10 @@ func (app *application) snippetCreate(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request) {
+	title := "0 snail"
+	content := "O snail\nClimb Mount Fuji,\nBut slowly, slowly!\n\n– Kobayashi Issa"
+	expires := 7
+
 	w.WriteHeader(http.StatusCreated)
 	w.Write([]byte("Save a new snippet..."))
 }

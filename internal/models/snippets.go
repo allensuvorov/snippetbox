@@ -26,6 +26,11 @@ func (m *SnippetModel) Insert(title string, content string, expires int) (int, e
 		return 0, err
 	}
 
+	id, err := result.LastInsertId()
+	if err != nil {
+		return 0, err
+	}
+
 	return 0, nil
 }
 

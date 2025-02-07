@@ -65,5 +65,7 @@ func (m *SnippetModel) Latest() ([]Snippet, error) {
 
 	defer rows.Close()
 
+	var snippets []Snippet
+
 	return nil, nil
 }

@@ -67,5 +67,9 @@ func (m *SnippetModel) Latest() ([]Snippet, error) {
 
 	var snippets []Snippet
 
+	for rows.Next() {
+
+	}
+
 	return nil, nil
 }

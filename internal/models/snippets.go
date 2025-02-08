@@ -81,5 +81,5 @@ func (m *SnippetModel) Latest() ([]Snippet, error) {
 		return nil, err
 	}
 
-	return nil, nil
+	return snippets, nil
 }

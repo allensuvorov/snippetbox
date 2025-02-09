@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"text/template"
 
 	"github.com/allensuvorov/snippetbox.git/internal/models"
 )
@@ -63,6 +64,11 @@ func (app *application) snippetView(w http.ResponseWriter, r *http.Request) {
 		"./ui/html/pages/home.html",
 	}
 
+	ts, err := template.ParseFiles(files...)
+	if err != nil {
+		app.serverError(w, r, err)
+		return
+	}
 }
 
 func (app *application) snippetCreate(w http.ResponseWriter, r *http.Request) {

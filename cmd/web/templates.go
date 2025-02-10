@@ -28,6 +28,11 @@ func newTemplateCache() (map[string]*template.Template, error) {
 			"./ui/html/partials/nav.html",
 			page,
 		}
+
+		ts, err := template.ParseFiles(files...)
+		if err != nil {
+			return nil, err
+		}
 	}
 	return cache, nil
 }

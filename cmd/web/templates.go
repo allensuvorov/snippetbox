@@ -12,5 +12,7 @@ type templateData struct {
 }
 
 func newTemplateCache() (map[string]*template.Template, error) {
-	return nil, nil
+	cache := map[string]*template.Template{}
+
+	return cache, nil
 }

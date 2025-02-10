@@ -20,5 +20,9 @@ func newTemplateCache() (map[string]*template.Template, error) {
 		return nil, err
 	}
 
+	for _, page := range pages {
+
+	}
+
 	return cache, nil
 }

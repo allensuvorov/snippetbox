@@ -28,6 +28,10 @@ func newTemplateCache() (map[string]*template.Template, error) {
 			return nil, err
 		}
 
+		ts, err = ts.ParseGlob("./ui/html/partials/*.html")
+		if err != nil {
+			return nil, err
+		}
 		// files := []string{
 		// 	"./ui/html/base.html",
 		// 	"./ui/html/partials/nav.html",

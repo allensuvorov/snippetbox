@@ -1,8 +1,16 @@
 package main
 
-import "github.com/allensuvorov/snippetbox.git/internal/models"
+import (
+	"text/template"
+
+	"github.com/allensuvorov/snippetbox.git/internal/models"
+)
 
 type templateData struct {
 	Snippet  models.Snippet
 	Snippets []models.Snippet
+}
+
+func newTemplateCache() (map[string]*template.Template, error) {
+	return nil, nil
 }

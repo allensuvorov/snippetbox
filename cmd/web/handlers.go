@@ -59,8 +59,9 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	title := "0 snail"
-	content := "O snail\nClimb Mount Fuji,\nBut slowly, slowly!\n\n– Kobayashi Issa"
+	title := r.PostForm.Get("title")
+	content := r.PostForm.Get("content")
+
 	expires := 7
 
 	id, err := app.snippets.Insert(title, content, expires)

@@ -78,6 +78,10 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 		fieldErrors["title"] = "this field cannot be more than 100 characters long"
 	}
 
+	if strings.TrimSpace(content) == "" {
+		fieldErrors["content"] = "This field cannot be blank"
+	}
+
 	id, err := app.snippets.Insert(title, content, expires)
 	if err != nil {
 		app.serverError(w, r, err)

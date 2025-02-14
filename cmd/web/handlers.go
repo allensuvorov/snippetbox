@@ -62,7 +62,11 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 	title := r.PostForm.Get("title")
 	content := r.PostForm.Get("content")
 
-	expires := 7
+	expires, err := strconv.Atoi(r.PostForm.Get("expires"))
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
 
 	id, err := app.snippets.Insert(title, content, expires)
 	if err != nil {

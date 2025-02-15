@@ -102,7 +102,7 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	id, err := app.snippets.Insert(title, content, expires)
+	id, err := app.snippets.Insert(form.Title, form.Content, form.Expires)
 	if err != nil {
 		app.serverError(w, r, err)
 		return

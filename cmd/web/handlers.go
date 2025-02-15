@@ -68,16 +68,18 @@ func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	title := r.PostForm.Get("title")
-	content := r.PostForm.Get("content")
-
 	expires, err := strconv.Atoi(r.PostForm.Get("expires"))
 	if err != nil {
 		app.clientError(w, http.StatusBadRequest)
 		return
 	}
 
-	fieldErrors := make(map[string]string)
+	form := snippetCreateForm{
+		Title:       r.PostForm.Get("title"),
+		Content:     r.PostForm.Get("content"),
+		Expires:     expires,
+		FieldErrors: make(map[string]string),
+	}
 
 	if strings.TrimSpace(title) == "" {
 		fieldErrors["title"] = "This field cannot be blank"

@@ -11,13 +11,6 @@ import (
 	"github.com/allensuvorov/snippetbox.git/internal/models"
 )
 
-type snippetCreateForm struct {
-	Title       string
-	Content     string
-	Expires     int
-	FieldErrors map[string]string
-}
-
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
 
 	snippets, err := app.snippets.Latest()
@@ -59,6 +52,13 @@ func (app *application) snippetCreate(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
 
 	app.render(w, r, http.StatusOK, "create.html", data)
+}
+
+type snippetCreateForm struct {
+	Title       string
+	Content     string
+	Expires     int
+	FieldErrors map[string]string
 }
 
 func (app *application) snippetCreatePost(w http.ResponseWriter, r *http.Request) {

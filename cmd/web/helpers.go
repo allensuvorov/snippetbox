@@ -51,5 +51,8 @@ func (app *application) newTemplateData(r *http.Request) templateData {
 }
 
 func (app *application) decodePostForm(r *http.Request, dst any) error {
-
+	err := r.ParseForm()
+	if err != nil {
+		return err
+	}
 }

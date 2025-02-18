@@ -8,17 +8,19 @@ import (
 	"os"
 	"text/template"
 
-	"github.com/allensuvorov/snippetbox.git/internal/models"
+	"github.com/alexedwards/scs/v2"
 	"github.com/go-playground/form/v4"
-
 	_ "github.com/go-sql-driver/mysql"
+
+	"github.com/allensuvorov/snippetbox.git/internal/models"
 )
 
 type application struct {
-	logger        *slog.Logger
-	snippets      *models.SnippetModel
-	templateCache map[string]*template.Template
-	formDecoder   *form.Decoder
+	logger         *slog.Logger
+	snippets       *models.SnippetModel
+	templateCache  map[string]*template.Template
+	formDecoder    *form.Decoder
+	sessionManager *scs.SessionManager
 }
 
 func main() {

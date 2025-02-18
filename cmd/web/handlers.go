@@ -46,6 +46,8 @@ func (app *application) snippetView(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
 	data.Snippet = snippet
 
+	data.Flash = flash
+
 	app.render(w, r, http.StatusOK, "view.html", data)
 }
 

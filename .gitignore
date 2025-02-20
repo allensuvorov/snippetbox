@@ -28,4 +28,4 @@ go.work.sum
 tls/
 
 # Ignore debug binaries
-__debug_bin*
+cmd/web/__debug_bin*

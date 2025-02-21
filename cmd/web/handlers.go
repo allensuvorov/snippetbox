@@ -103,3 +103,7 @@ func (app *application) userSignup(w http.ResponseWriter, r *http.Request) {
 func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Create a new user...")
 }
+
+func (app *application) userLogin(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Displey a form for logging in a user...")
+}

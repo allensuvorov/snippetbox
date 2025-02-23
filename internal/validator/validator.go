@@ -48,3 +48,7 @@ func PermittedValue[T comparable](value T, permittedValues ...T) bool {
 func MinChars(value string, n int) bool {
 	return utf8.RuneCountInString(value) >= n
 }
+
+func Matches(value string, rx *regexp.Regexp) bool {
+	return rx.MatchString(value)
+}

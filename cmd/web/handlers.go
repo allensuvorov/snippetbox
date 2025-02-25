@@ -110,6 +110,8 @@ func (app *application) userSignup(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
+	var form userSignupForm
+
 	fmt.Fprintln(w, "Create a new user...")
 }
 

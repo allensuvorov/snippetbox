@@ -112,6 +112,12 @@ func (app *application) userSignup(w http.ResponseWriter, r *http.Request) {
 func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
 	var form userSignupForm
 
+	err := app.decodePostForm(r, &form)
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
 	fmt.Fprintln(w, "Create a new user...")
 }
 

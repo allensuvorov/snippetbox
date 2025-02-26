@@ -25,6 +25,9 @@ func (m *UserModel) Insert(name, email, password string) error {
 		return err
 	}
 
+	stmt := `INSERT INTO users (name, email, hashed_password, created)
+    VALUES(?, ?, ?, UTC_TIMESTAMP())`
+
 	return nil
 }
 

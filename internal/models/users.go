@@ -21,6 +21,9 @@ type UserModel struct {
 
 func (m *UserModel) Insert(name, email, password string) error {
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), 12)
+	if err != nil {
+		return err
+	}
 
 	return nil
 }

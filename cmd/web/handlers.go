@@ -145,6 +145,8 @@ func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
 
 		return
 	}
+
+	app.sessionManager.Put(r.Context(), "flash", "Your signup was successful. Please log in.")
 }
 
 func (app *application) userLogin(w http.ResponseWriter, r *http.Request) {

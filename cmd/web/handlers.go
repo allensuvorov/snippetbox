@@ -158,7 +158,9 @@ type userLoginFrom struct {
 }
 
 func (app *application) userLogin(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Displey a form for logging in a user...")
+	data := app.newTemplateData(r)
+	data.Form = userLoginFrom{}
+	app.render(w, r, http.StatusOK, "login.html", data)
 }
 
 func (app *application) userLoginPost(w http.ResponseWriter, r *http.Request) {

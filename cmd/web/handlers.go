@@ -151,6 +151,12 @@ func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/user/login", http.StatusSeeOther)
 }
 
+type userLoginFrom struct {
+	Email               string `form:"email"`
+	Password            string `from:"password"`
+	validator.Validator `form:"-"`
+}
+
 func (app *application) userLogin(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Displey a form for logging in a user...")
 }

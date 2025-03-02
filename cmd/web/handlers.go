@@ -205,7 +205,7 @@ func (app *application) userLoginPost(w http.ResponseWriter, r *http.Request) {
 
 	app.sessionManager.Put(r.Context(), "authenticatedUserID", id)
 
-	fmt.Fprintln(w, "Authenticate and login the user...")
+	http.Redirect(w, r, "/snippet/create", http.StatusSeeOther)
 }
 
 func (app *application) userLogoutPost(w http.ResponseWriter, r *http.Request) {

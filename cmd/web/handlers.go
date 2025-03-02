@@ -183,6 +183,20 @@ func (app *application) userLoginPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	id, err := app.users.Authenticate(form.Email, form.Password)
+	if err != nil {
+		if errors.Is(err, models.ErrInvalidCredentials) {
+			form.AddNonFieldError("Email or passowrd is incorrect")
+
+			data := app.newTemplateData(r)
+			data.Form = form
+			app.render(w, r, http.StatusUnprocessableEntity, "login.html", data)
+		} else {
+			app.serverError(w, r, err)
+		}
+		return
+	}
+
 	fmt.Fprintln(w, "Authenticate and login the user...")
 }
 

@@ -151,7 +151,7 @@ func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/user/login", http.StatusSeeOther)
 }
 
-type userLoginFrom struct {
+type userLoginForm struct {
 	Email               string `form:"email"`
 	Password            string `form:"password"`
 	validator.Validator `form:"-"`
@@ -159,12 +159,12 @@ type userLoginFrom struct {
 
 func (app *application) userLogin(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
-	data.Form = userLoginFrom{}
+	data.Form = userLoginForm{}
 	app.render(w, r, http.StatusOK, "login.html", data)
 }
 
 func (app *application) userLoginPost(w http.ResponseWriter, r *http.Request) {
-	var form userLoginFrom
+	var form userLoginForm
 
 	err := app.decodePostForm(r, &form)
 	if err != nil {

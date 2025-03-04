@@ -153,7 +153,7 @@ func (app *application) userSignupPost(w http.ResponseWriter, r *http.Request) {
 
 type userLoginFrom struct {
 	Email               string `form:"email"`
-	Password            string `from:"password"`
+	Password            string `form:"password"`
 	validator.Validator `form:"-"`
 }
 

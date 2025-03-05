@@ -219,5 +219,5 @@ func (app *application) userLogoutPost(w http.ResponseWriter, r *http.Request) {
 
 	app.sessionManager.Put(r.Context(), "flash", "You've been logged out successfully!")
 
-	fmt.Fprintln(w, "Logout the user...")
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }

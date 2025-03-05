@@ -215,5 +215,7 @@ func (app *application) userLogoutPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	app.sessionManager.Remove(r.Context(), "authenticatedUserID")
+
 	fmt.Fprintln(w, "Logout the user...")
 }

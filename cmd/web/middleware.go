@@ -54,5 +54,7 @@ func (app *application) requireAuthentication(next http.Handler) http.Handler {
 		}
 
 		w.Header().Add("Cache-Control", "no-store")
+
+		next.ServeHTTP(w, r)
 	})
 }

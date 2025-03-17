@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"net/http"
 
@@ -84,6 +85,11 @@ func (app *application) authenticate(next http.Handler) http.Handler {
 		if err != nil {
 			app.serverError(w, e, err)
 			return
+		}
+
+		if exists {
+			ctx := context.WithValue(r.Context(), isAuthenticatedContextKey, true)
+			r = r.WithContext(ctx)
 		}
 	})
 }

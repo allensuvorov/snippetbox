@@ -44,7 +44,7 @@ func newTemplateCache() (map[string]*template.Template, error) {
 			"html/partials/*.html",
 		}
 
-		ts, err = ts.ParseFiles(page)
+		ts, err := template.New(name).Funcs(functions).ParseFS(ui.Files, patterns...)
 		if err != nil {
 			return nil, err
 		}

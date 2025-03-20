@@ -39,14 +39,9 @@ func newTemplateCache() (map[string]*template.Template, error) {
 	for _, page := range pages {
 		name := filepath.Base(page)
 
-		ts, err := template.New(name).Funcs(functions).ParseFiles("./ui/html/base.html")
-		if err != nil {
-			return nil, err
-		}
-
-		ts, err = ts.ParseGlob("./ui/html/partials/*.html")
-		if err != nil {
-			return nil, err
+		patterns := []string{
+			"html/base.html",
+			"html/partials/*.html",
 		}
 
 		ts, err = ts.ParseFiles(page)

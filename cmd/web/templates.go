@@ -1,11 +1,13 @@
 package main
 
 import (
+	"io/fs"
 	"path/filepath"
 	"text/template"
 	"time"
 
 	"github.com/allensuvorov/snippetbox.git/internal/models"
+	"github.com/allensuvorov/snippetbox.git/ui"
 )
 
 type templateData struct {
@@ -29,7 +31,7 @@ var functions = template.FuncMap{
 func newTemplateCache() (map[string]*template.Template, error) {
 	cache := map[string]*template.Template{}
 
-	pages, err := filepath.Glob("./ui/html/pages/*.html")
+	pages, err := fs.Glob(ui.Files, "html/pages/*.html")
 	if err != nil {
 		return nil, err
 	}

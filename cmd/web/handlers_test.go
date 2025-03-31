@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/allensuvorov/snippetbox.git/internal/assert"
 )
 
 func TestPing(t *testing.T) {
@@ -17,4 +19,6 @@ func TestPing(t *testing.T) {
 	ping(rr, r)
 
 	rs := rr.Result()
+
+	assert.Equal(t, rs.StatusCode, http.StatusOK)
 }

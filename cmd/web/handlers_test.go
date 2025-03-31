@@ -15,4 +15,6 @@ func TestPing(t *testing.T) {
 	}
 
 	ping(rr, r)
+
+	rs := rr.Result()
 }

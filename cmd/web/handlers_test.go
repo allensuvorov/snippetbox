@@ -1,7 +1,10 @@
 package main
 
-import "testing"
+import (
+	"net/http/httptest"
+	"testing"
+)
 
 func TestPing(t *testing.T) {
-
+	rr := httptest.NewRecorder()
 }

@@ -13,4 +13,6 @@ func TestPing(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
+	ping(rr, r)
 }

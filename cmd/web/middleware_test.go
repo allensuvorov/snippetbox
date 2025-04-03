@@ -26,4 +26,7 @@ func TestCommonHeaders(t *testing.T) {
 
 	expectedValue := "default-src 'self'; style-src 'self' fonts.googleapis.com; font-src fonts.gstatic.com"
 	assert.Equal(t, rs.Header.Get("Content-Security-Policy"), expectedValue)
+
+	expectedValue = "origin-when-cross-origin"
+	assert.Equal(t, rs.Header.Get("Referrer-Policy"), expectedValue)
 }

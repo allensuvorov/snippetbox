@@ -35,4 +35,7 @@ func TestCommonHeaders(t *testing.T) {
 
 	expectedValue = "deny"
 	assert.Equal(t, rs.Header.Get("X-Frame-Options"), expectedValue)
+
+	expectedValue = "0"
+	assert.Equal(t, rs.Header.Get("X-XSS-Protection"), expectedValue)
 }

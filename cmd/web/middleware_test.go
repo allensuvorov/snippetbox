@@ -32,4 +32,7 @@ func TestCommonHeaders(t *testing.T) {
 
 	expectedValue = "nosniff"
 	assert.Equal(t, rs.Header.Get("X-Content-Type-Options"), expectedValue)
+
+	expectedValue = "deny"
+	assert.Equal(t, rs.Header.Get("X-Frame-Options"), expectedValue)
 }

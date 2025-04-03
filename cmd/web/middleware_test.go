@@ -29,4 +29,7 @@ func TestCommonHeaders(t *testing.T) {
 
 	expectedValue = "origin-when-cross-origin"
 	assert.Equal(t, rs.Header.Get("Referrer-Policy"), expectedValue)
+
+	expectedValue = "nosniff"
+	assert.Equal(t, rs.Header.Get("X-Content-Type-Options"), expectedValue)
 }

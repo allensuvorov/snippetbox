@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/allensuvorov/snippetbox.git/internal/assert"
 )
 
 func TestCommonHeaders(t *testing.T) {
@@ -21,4 +23,7 @@ func TestCommonHeaders(t *testing.T) {
 	commonHeaders(next).ServeHTTP(rr, r)
 
 	rs := rr.Result()
+
+	expectedValue := "default-src 'self'; style-src 'self' fonts.googleapis.com; font-src fonts.gstatic.com"
+	assert.Equal(t, rs.Header.Get("Content-Security-Policy"), expectedValue)
 }

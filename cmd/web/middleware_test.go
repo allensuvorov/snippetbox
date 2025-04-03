@@ -41,4 +41,6 @@ func TestCommonHeaders(t *testing.T) {
 
 	expectedValue = "Go"
 	assert.Equal(t, rs.Header.Get("Server"), expectedValue)
+
+	assert.Equal(t, rs.StatusCode, http.StatusOK)
 }

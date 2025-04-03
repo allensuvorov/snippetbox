@@ -19,4 +19,6 @@ func TestCommonHeaders(t *testing.T) {
 	})
 
 	commonHeaders(next).ServeHTTP(rr, r)
+
+	rs := rr.Result()
 }

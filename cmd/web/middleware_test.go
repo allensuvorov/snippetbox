@@ -38,4 +38,7 @@ func TestCommonHeaders(t *testing.T) {
 
 	expectedValue = "0"
 	assert.Equal(t, rs.Header.Get("X-XSS-Protection"), expectedValue)
+
+	expectedValue = "Go"
+	assert.Equal(t, rs.Header.Get("Server"), expectedValue)
 }

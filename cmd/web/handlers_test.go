@@ -5,6 +5,7 @@ import (
 	"io"
 	"log/slog"
 	"net/http"
+	"net/http/httptest"
 	"testing"
 
 	"github.com/allensuvorov/snippetbox.git/internal/assert"
@@ -14,6 +15,9 @@ func TestPing(t *testing.T) {
 	app := &application{
 		logger: slog.New(slog.DiscardHandler),
 	}
+
+	ts := httptest.NewTLSServer(app.routes())
+	refer ts.Close()
 
 	assert.Equal(t, rs.StatusCode, http.StatusOK)
 

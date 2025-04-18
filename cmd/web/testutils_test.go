@@ -28,6 +28,8 @@ func newTestServer(t *testing.T, h http.Handler) *testServer {
 		t.Fatal(err)
 	}
 
+	ts.Client().Jar = jar
+
 	return &testServer{ts}
 }
 

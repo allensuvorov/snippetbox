@@ -8,6 +8,8 @@ import (
 	"net/http/cookiejar"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/go-playground/form/v4"
 )
 
 func newTestApplication(t *testing.T) *application {
@@ -15,6 +17,8 @@ func newTestApplication(t *testing.T) *application {
 	if err != nil {
 		t.Fatal(err)
 	}
+
+	formDecoder := form.NewDecoder()
 
 	return &application{
 		logger: slog.New(slog.DiscardHandler),

@@ -11,6 +11,11 @@ import (
 )
 
 func newTestApplication(t *testing.T) *application {
+	templateCache, err := newTemplateCache()
+	if err != nil {
+		t.Fatal(err)
+	}
+
 	return &application{
 		logger: slog.New(slog.DiscardHandler),
 	}

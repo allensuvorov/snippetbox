@@ -21,4 +21,7 @@ func TestPing(t *testing.T) {
 
 func TestSnippetView(t *testing.T) {
 	app := newTestApplication(t)
+
+	ts := newTestServer(t, app.routes())
+	defer ts.Close()
 }

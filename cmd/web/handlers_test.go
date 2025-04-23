@@ -18,3 +18,7 @@ func TestPing(t *testing.T) {
 	assert.Equal(t, code, http.StatusOK)
 	assert.Equal(t, body, "OK")
 }
+
+func TestSnippetView(t *testing.T) {
+	app := newTestApplication(t)
+}
